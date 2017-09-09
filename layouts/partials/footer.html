@@ -1,0 +1,73 @@
+            </div>
+          </div><!-- End Main Content -->
+        </div>
+      </div>
+      </section>
+      <!-- Begin Footer -->
+      <footer id="footer-content">
+        <!-- Begin Footer Top -->
+        <div class="footer-top-bar">
+          <div class="footer-top-bar-inner">
+            <div class="home-partner">
+              <div class="container">
+              </div>
+            </div>
+          </div>
+        </div><!-- End Footer Top -->
+        <!-- Begin Footer Widgets -->
+        <div class="footer-widgets">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="footer-block">
+                    <a href="/"><img class="logo" src="{{ .Site.BaseURL }}images/logo.png" alt="{{ .Site.Title }}"></a>
+                  <div class="sub-description">
+                    {{ with .Site.Data.config.description }}{{ . }}{{ end }}
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="footer-block">
+{{- partial "menus/footer1" . }}
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="footer-block">
+{{- partial "menus/footer2" . }}
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="footer-block">
+{{- partial "widgets/contactus" . }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- End Footer Widgets -->
+        <!-- Begin Footer Copyright -->
+        <div class="footer-copyright">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="copyright">
+                    <p>{{ with .Site.Copyright }}{{ . | safeHTML }}{{ else }}&copy; {{ $.Site.LastChange.Year }} {{ if isset $.Site.Params "Author" }}{{ $.Site.Params.Author }}{{ else }}{{ .Site.Title }}{{ end }}{{ end }}</p>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12">
+                <ul class="payment-icons list-inline">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><!-- End Footer Copyright -->
+        <div id="checkLayout"></div>
+      </footer><!-- End Footer -->
+    </div>
+    <div id="scroll-to-top" title="Back To Top">
+      <a href="javascript:;"></a>
+    </div>
+    <div class="loading" style="display: none;"></div>
+{{ partial "scripts" . }}
+  </div>
+</body>
+</html>

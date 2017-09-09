@@ -1,0 +1,27 @@
+<!-- this is an example of a basic menu with child menus
+    - this template uses the "main" menu
+    - see also: partials/menus/home-dropdown.html -->
+                          <li class="dropdown">
+                            <a href="/" class="dropdown-link"><span>Main</span></a> <span class="expand"></span>
+                            <ul class="dropdown-menu">
+{{- $currentNode := . -}}
+{{- range .Site.Menus.main -}}
+{{- if .HasChildren -}}
+                              <li class="dropdown dropdown-submenu">
+                                <a href="{{ .URL }}" class="dropdown-link {{if $currentNode.HasMenuCurrent "main" . }}active{{end}}">{{ .Pre }}<span>{{ .Name }}</span></a> <span class="expand fa fa-angle-right"></span>
+                                <ul class="dropdown-menu">
+{{- range .Children -}}
+                                  <li>
+                                    <a tabindex="-1" {{if $currentNode.HasMenuCurrent "main" . }}class="active"{{end}} href="{{ .URL }}"><span>{{ .Name }}</span></a>
+                                  </li>
+{{- end -}}
+                                </ul>
+                              </li>
+{{- else -}}
+                              <li>
+                                <a tabindex="-1" {{if $currentNode.HasMenuCurrent "main" . }}class="active"{{end}} href="{{ .URL }}">{{ .Pre }}<span>{{ .Name }}</span></a>
+                              </li>
+{{- end -}}
+{{- end -}}
+                            </ul>
+                          </li>

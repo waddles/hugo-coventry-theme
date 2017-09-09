@@ -1,0 +1,24 @@
+{{ if .Site.Data.config.widgets.tags }}
+{{ if isset .Site.Taxonomies "tags" }}
+{{ if not (eq (len .Site.Taxonomies.tags) 0) }}
+                    <div class="sb-blog-tags">
+                      <div class="sb-widget">
+                        <h4 class="sb-title">{{ with .Site.Data.l10n.widgets.tags.title }}{{.}}{{end}}</h4>
+                        <div class="tag-list">
+{{ range $name, $items := .Site.Taxonomies.tags }}
+                          <div class="tag-list-item">
+                            <div class="tag-list-link">
+                              <a class="tag-list-link" href="{{ $.Site.BaseURL }}tags/{{ $name | urlize | lower }}">
+                              <i class="fa fa-tag" aria-hidden="true"></i>
+                                  {{ $name }}
+                              </a>
+                              <span class="tag-list-count">({{ len $items }})</span>
+                            </div>
+                          </div>
+{{ end }}
+                        </div>
+                      </div>
+                    </div>
+{{ end }}
+{{ end }}
+{{ end }}

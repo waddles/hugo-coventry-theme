@@ -1,0 +1,18 @@
+<!-- this is an example of a basic footer menu with no children
+    - this template uses the "footer1" menu
+    - suggested content:
+        About Us
+        Delivery Infomation
+        Privacy Policy
+        Terms & Conditions
+        Contact Us
+-->
+                  <h4>Information</h4>
+                  <ul class="list-links list-unstyled">
+{{- $currentNode := . -}}
+{{- range .Site.Menus.footer1 -}}
+                    <li>
+                      <a tabindex="-1" {{if $currentNode.HasMenuCurrent "footer1" . }}class="active"{{end}} href="{{ .URL }}">{{ .Pre }}<span>{{ .Name }}</span></a>
+                    </li>
+{{- end -}}
+                  </ul>

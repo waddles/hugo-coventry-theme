@@ -1,0 +1,25 @@
+<!-- this is an example of a mega menu containing 4 submenus
+    - this template uses the menus "mega1", "mega2", "mega3" and "mega4"
+    - replace all occurrences with your own menu names
+ -->
+                          <li class="dropdown mega-menu">
+                            <a href="/Mega1" class="dropdown-link"><span>MegaMenu</span></a> <span class="expand"></span>
+                            <div class="dropdown-menu dropdown-menu-1 column-4" style="min-height: 100px; background: #ffffff;">
+                              <div class="row">
+{{- range $index, $entry := where .Site.Menus.main ".Identifier" "in" "events history rallies trophies" -}}
+                                <div class="mega-col mega-col-{{ add $index 1 }} col-sm-3">
+                                  <div class="dropdown mega-sub-link">
+                                    <a href="{{ .URL }}" class="dropdown-link {{ .Identifier }}">{{ .Pre }}<span>{{ .Name }}</span></a>
+                                    <ul class="dropdown-menu dropdown-menu-sub">
+{{- range .Children -}}
+                                      <li>
+                                        <a tabindex="-1" href="{{ .URL }}">{{ .Pre }}<span>{{ .Name }}</span></a>
+                                      </li>
+{{- end -}}
+                                    </ul>
+                                  </div>
+                                </div>
+{{- end -}}
+                              </div>
+                            </div>
+                          </li>

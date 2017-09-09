@@ -1,0 +1,27 @@
+<!-- this is an example of a thumbnail menu containing 4 columns of posts with images
+ -->
+                          <li class="dropdown mega-menu">
+                            <a href="/post/" class="dropdown-link"><span>New Posts</span></a> <span class="expand"></span>
+                            <div class="dropdown-menu dropdown-menu-2 column-4" style="min-height: 100px; background: #ffffff;">
+                              <div class="row">
+{{ range $index, $entry := first 12 (where .Site.Pages ".Section" "eq" "post") }}
+                                <div class="mega-col mega-col-{{ add (mod $index 4) 1 }} col-sm-3">
+                                  <div class="dropdown mega-sub-link thumbnails">
+                                    <ul class="dropdown-menu dropdown-menu-sub">
+                                      <li>
+                                        <a href="{{ .Permalink }}">
+{{if or (in (substr .Params.thumbnail 0 7) "http://") (in (substr .Params.thumbnail 0 8) "https://")}}
+                                          <img src="{{ .Params.thumbnail | urlize }}" alt="{{ .Title }}">
+{{ else }}
+                                          <img src="{{ .Site.BaseURL }}{{ or .Params.thumbnail | default "images/post-image.jpg" | urlize }}" alt="{{ .Title }}">
+{{end}}
+                                        </a>
+                                      </li>
+                                    </ul>
+                                    <a href="{{ .Permalink }}"><span>{{ .Title }}</span></a>
+                                  </div>
+                                </div>
+{{ end }}
+                              </div>
+                            </div>
+                          </li>

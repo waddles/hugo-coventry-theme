@@ -1,0 +1,15 @@
+<!-- this is an example of a basic menu with no children
+    - this template uses the "home" menu
+    - see also: partials/menus/dropdown-submenus.html
+-->
+                          <li class="dropdown">
+                            <a href="/" class="dropdown-link"><span>Home</span></a> <span class="expand"></span>
+                            <ul class="dropdown-menu">
+{{- $currentNode := . -}}
+{{- range .Site.Menus.home -}}
+                              <li>
+                                <a tabindex="-1" {{if $currentNode.HasMenuCurrent "home" . }}class="active"{{end}} href="{{ .URL }}">{{ .Pre }}<span>{{ .Name }}</span></a>
+                              </li>
+{{- end -}}
+                            </ul>
+                          </li>

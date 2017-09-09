@@ -1,0 +1,34 @@
+                      <article class="post">
+                        <div class="post-image">
+                          <a href="{{ .Permalink }}">
+{{if or (in (substr .Params.banner 0 7) "http://") (in (substr .Params.banner 0 8) "https://")}}
+                            <img src="{{ .Params.banner | urlize }}" alt="{{ .Title }}">
+{{ else }}
+                            <img src="{{ .Site.BaseURL }}{{ or .Params.banner | default "images/post-image.jpg" | urlize }}" alt="{{ .Title }}">
+{{end}}
+                          </a>
+                        </div>
+                        <div class="post-content">
+                          <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                          <ul class="post-meta list-inline">
+                            <li class="author"><i class="f-user p-color"></i><span>{{ .Params.author | or .Site.Params.author }}</span></li>
+                            <li class="date"><i class="f-clock p-color"></i><span><time datetime="{{ .Date }}" itemprop="datePublished">{{ .Date.Format .Site.Params.date_format }}</time></span></li>
+{{ with .Params.categories }}
+                            <li class="categories"><i class="f-categories p-color"></i><span>
+                              {{ delimit (apply (apply (sort .) "partial" "helpers/link-tags" ".") "chomp" ".") ", " }}
+                            </span></li>
+{{ end }}
+{{ with .Params.tags }}
+                            <li class="tags"><i class="f-tags p-color"></i><span>
+                              {{ delimit (apply (apply (sort .) "partial" "helpers/link-tags" ".") "chomp" ".") ", " }}
+                            </span></li>
+{{ end }}
+                          </ul>
+                          <div class="post-des">
+                            {{ .Summary }} 
+{{ if .Truncated }}
+                            <a class="link-to-post" href="{{ .Permalink }}" title="View more">View more</a>
+{{ end }}
+                          </div>
+                        </div>
+                      </article>

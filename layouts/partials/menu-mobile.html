@@ -1,0 +1,19 @@
+    <!-- Begin Menu Mobile-->
+    <nav class="mobile-version visible-xs visible-sm">
+      <div class="menu-mobile navbar">
+        <div class="nav-collapse is-mobile-nav">
+          <ul class="main-nav">
+{{ partial "menus/home-dropdown" . }}
+            <li{{ if eq .Section "post" }} class="active"{{ end }}>
+              <a href="/post/"><span>Blog</span></a>
+            </li>
+{{ partial "menus/mega-menu" . }}
+{{ partial "menus/dropdown-submenus" . }}
+{{ partial "menus/thumbnails" . }}
+            <li{{ if .IsPage }}{{ if eq .RelPermalink "/page/contact/" }} class="active"{{ end }}{{ end }}>
+              <a href="/pages/contact-us"><span>Contact Us</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav><!-- End Menu Mobile-->

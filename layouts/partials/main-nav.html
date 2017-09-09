@@ -1,0 +1,19 @@
+                    <nav class="navbar">
+                      <div class="collapse navbar-collapse">
+                        <ul class="main-nav">
+                          <li class="logo-sticky">
+                            <a href="/" title="{{ .Site.Title }}" class="logo-site"><img class="logo" src="{{ .Site.BaseURL }}images/logo.png" alt="{{ .Site.Title }}"></a>
+                          </li>
+{{ partial "menus/home-dropdown" . }}
+                          <li{{ if eq .Section "post" }} class="active"{{ end }}>
+                            <a href="/post/"><span>Blog</span></a>
+                          </li>
+{{ partial "menus/mega-menu" . }}
+{{ partial "menus/dropdown-submenus" . }}
+{{ partial "menus/thumbnails" . }}
+                          <li{{ if .IsPage }}{{ if eq .RelPermalink "/page/contact/" }} class="active"{{ end }}{{ end }}>
+                            <a href="/page/contact/"><span>Contact Us</span></a>
+                          </li>
+                        </ul>
+                      </div>
+                    </nav>

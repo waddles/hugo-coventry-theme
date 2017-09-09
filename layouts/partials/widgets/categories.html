@@ -1,0 +1,24 @@
+{{ if .Site.Data.config.widgets.categories }}
+{{ if isset .Site.Taxonomies "categories" }}
+{{ if not (eq (len .Site.Taxonomies.categories) 0) }}
+                    <div class="sb-blog-categories">
+                      <div class="sb-widget">
+                        <h4 class="sb-title">{{with .Site.Data.l10n.widgets.categories.title}}{{.}}{{end}}</h4>
+                        <div class="category-list">
+{{ range $name, $items := .Site.Taxonomies.categories }}
+                          <div class="category-list-item">
+                            <div class="category-list-link">
+                              <a class="category-list-link" href="{{ $.Site.BaseURL }}categories/{{ $name | urlize | lower }}">
+                              <i class="fa fa-folder-open" aria-hidden="true"></i>
+                                  {{ $name }}
+                              </a>
+                              <span class="category-list-count">({{ len $items }})</span>
+                            </div>
+                          </div>
+{{ end }}
+                        </div>
+                      </div>
+                    </div>
+{{ end }}
+{{ end }}
+{{ end }}

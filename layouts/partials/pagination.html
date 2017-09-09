@@ -1,0 +1,25 @@
+                    <nav class="pagination-holder">
+{{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+                      <ul class="pagination">
+{{ if .Paginator.HasPrev }}
+                        <li>
+                          <a class="extend prev" rel="prev" href="{{ .Paginator.First.URL }}">« {{with .Site.Data.l10n.pagination.first}}{{.}}{{end}}</a>
+                        </li>
+                        <li>
+                          <a href="{{ .Paginator.Prev.URL }}">{{ sub .Paginator.PageNumber 1 }}</a>
+                        </li>
+{{ end }}
+                        <li class="active">
+                          <a href="#">{{ .Paginator.PageNumber }}</a>
+                        </li>
+{{ if .Paginator.HasNext }}
+                        <li>
+                          <a href="{{ .Paginator.Next.URL }}">{{ add .Paginator.PageNumber 1 }}</a>
+                        </li>
+                        <li>
+                          <a class="extend next" rel="next" href="{{ .Paginator.Last.URL }}">{{with .Site.Data.l10n.pagination.last}}{{.}}{{end}} »</a>
+                        </li>
+{{ end }}
+                      </ul>
+{{ end }}
+                    </nav>

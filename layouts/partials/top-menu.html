@@ -1,0 +1,10 @@
+                  <ul class="list-inline">
+                    <li class="box-welcome">{{ with .Site.Data.config.welcome }}{{.}}{{ end }}</li>
+                    <li>
+                      <a href="/post/"><span>{{ with .Site.Data.l10n.labels.posts }}{{.}}{{ end }}</span></a>
+                    </li>
+                    <li>
+                    <a href="/members/" title="{{ with .Site.Data.l10n.labels.login }}{{.}}{{ end }}"><span>{{ with .Site.Data.l10n.labels.login }}{{.}}{{ end }}</span></a>
+                    </li>
+                  </ul>
+

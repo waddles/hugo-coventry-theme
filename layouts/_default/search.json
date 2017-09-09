@@ -1,0 +1,5 @@
+{{- $.Scratch.Add "search" slice -}}
+{{- range .Site.Pages -}}
+{{- $.Scratch.Add "search" (dict "title" .Title "ref" .Permalink "thumbnail" .Params.thumbnail "tags" .Params.tags "categories" .Params.categories "content" .Plain) -}}
+{{- end -}}
+{{- $.Scratch.Get "search" | jsonify -}}

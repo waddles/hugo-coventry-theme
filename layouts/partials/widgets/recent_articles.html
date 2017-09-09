@@ -1,0 +1,26 @@
+{{ if .Site.Params.widgets.recent_articles }}
+                    <div class="sb-blog-recent">
+                      <div class="sb-widget">
+                        <h4 class="sb-title">{{with .Site.Data.l10n.widgets.recent_articles.title}}{{.}}{{end}}</h4>
+                        <div class="recent-post-list">
+{{ range first 5 (where .Site.Pages "Type" "post") }}
+                          <div class="recent-post-item">
+                            <div class="recent-media-thumb">
+                              <a href="{{ .Permalink }}">
+{{if or (in (substr .Params.banner 0 7) "http://") (in (substr .Params.banner 0 8) "https://")}}
+                                <span style="background-image:url({{ .Params.banner | urlize }})" alt="{{ .Title }}"></span>
+{{ else }}
+                                <span style="background-image:url({{ .Site.BaseURL }}{{ or .Params.banner | default "images/post-image.jpg" | urlize }})" alt="{{ .Title }}"></span>
+{{end}}
+                              </a>
+                            </div>
+                            <div class="recent-media-content">
+                              <a href="{{ .Permalink }}">{{ .Title }}</a>
+                              <span class="date"><time datetime="{{ .Date }}" itemprop="datePublished">{{ .Date.Format .Site.Params.date_format }}</time></span>
+                            </div>
+                          </div>
+{{ end }}
+                        </div>
+                      </div>
+                    </div>
+{{ end }}

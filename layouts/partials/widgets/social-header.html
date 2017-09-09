@@ -1,0 +1,7 @@
+{{- if .Site.Data.config.widgets.social_header -}}
+              <div id="widget-social" class="header-social">
+                <ul class="widget-social list-inline">
+{{- partial "widgets/social" . -}}
+                </ul>
+              </div>
+{{- end -}}

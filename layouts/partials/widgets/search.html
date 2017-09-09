@@ -1,0 +1,12 @@
+{{ if .Site.Params.widgets.search }}
+                    <div class="sb-search">
+                      <div class="sb-widget">
+                        <h4 class="sb-title">Search the blog</h4>
+                        <div class="search-blog">
+                          <form action="/search" method="get">
+                            <input type="hidden" name="type" value="article"> <input type="text" name="q" class="form-control" placeholder="Search..." autocomplete="off"> <button type="submit" class="btn btn-default">Search</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+{{ end }}

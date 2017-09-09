@@ -1,0 +1,10 @@
+{{- if .Site.Data.config.widgets.social_sidebar -}}
+                    <div class="sb-social">
+                      <div class="social-title">
+                        {{ with .Site.Data.l10n.widgets.social.title }}{{.}}{{end}}
+                      </div>
+                      <ul class="widget-social list-inline">
+{{- partial "widgets/social" . -}}
+                      </ul>
+                    </div>
+{{- end -}}

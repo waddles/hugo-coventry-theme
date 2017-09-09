@@ -1,0 +1,120 @@
+div.jGrowl{
+  z-index:9999;
+  color:#fff;
+  font-size:12px;
+}
+div.ie6{
+  position:absolute;
+}
+div.jGrowl{
+  position:absolute;
+}
+body>div.jGrowl{
+  position:fixed;
+}
+div.jGrowl.top-left{
+  left:0;
+  top:0;
+}
+div.jGrowl.top-right{
+  right:0;
+  top:0;
+}
+div.jGrowl.bottom-left{
+  left:0;
+  bottom:0;
+}
+div.jGrowl.bottom-right{
+  right:0;
+  bottom:0;
+}
+div.jGrowl.center{
+  top:30%;
+  width:50%;
+  left:25%;
+}
+div.center div.jGrowl-closer,
+div.center div.jGrowl-notification{
+  margin-left:auto;
+  margin-right:auto;
+}
+div.jGrowl div.jGrowl-notification{
+  background-color:#E2DCDC;
+  color:#333;
+  zoom:1;
+  padding:15px;
+  margin-top:5px;
+  margin-bottom:5px;
+  font-size:1em;
+  text-align:left;
+  display:none;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  -o-border-radius:3px;
+  border-radius:3px;
+  border:1px solid #999;
+  border:1px solid rgba(0,0,0,.2);
+  width:500px!important;
+  position:relative;
+}
+div.jGrowl div.jGrowl-notification div.jGrowl-header{
+  font-weight:700;
+  font-size:.85em
+}
+div.jGrowl div.jGrowl-notification div.jGrowl-close{
+  color:#FF0000;
+  z-index:99;
+  position:absolute;
+  top:15px;
+  left:15px;
+  font-size:16px;
+  cursor:pointer;
+  display:block;
+}
+div.jGrowl div.jGrowl-notification div.jGrowl-close:hover{
+  color:#333;
+}
+div.jGrowl div.jGrowl-notification div.jGrowl-close .icon-remove-circle{
+  display:block;
+}
+div.jGrowl div.jGrowl-notification div.jGrowl-message{
+  padding:5px 0;
+  display:inline-block;
+  width: 100%;
+}
+div.jGrowl div.jGrowl-notification div.jGrowl-message img{
+  max-width:100%;
+}
+div.jGrowl div.jGrowl-notification .jGrowl-title{
+  text-transform:uppercase;
+  margin:0;padding:0;
+}
+div.jGrowl div.jGrowl-notification .jGrowl-note{
+  margin-top:5px;
+}
+div.jGrowl div.jGrowl-notification .jGrowl-note a{
+  text-transform:lowercase;
+  color:#000;
+}
+div.jGrowl div.jGrowl-notification .jGrowl-note a:hover{
+  color:#000;
+}
+div.jGrowl div.jGrowl-closer{
+  padding-top:4px;
+  padding-bottom:4px;
+  cursor:pointer;
+  font-size:.9em;
+  font-weight:700;
+  text-align:center;
+  color:#000;
+}
+div.jGrowl div.jGrowl-closer:hover{
+  color:#000;
+}
+.layer-effect-wl .info p{
+  background: #E1F2E4;
+  color: #41AE53;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+@media print{div.jGrowl{display:none}}

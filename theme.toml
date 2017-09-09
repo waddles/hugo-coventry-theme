@@ -1,0 +1,17 @@
+name = "Coventry"
+license = "MIT"
+licenselink = "https://github.com/waddles/hugo-coventry-theme/blob/master/LICENSE.md"
+description = "A full featured, responsive, vintage theme"
+homepage = "http://www.armstrongsiddeley.org/"
+tags = ["vintage", "blog"]
+features = ["search", "calendar", "tag cloud", "categories", "mega-menu", "responsive"]
+min_version = 0.26
+
+[author]
+  name = "Wade Fitzpatrick"
+  homepage = "http://waddles.org/"
+
+[original]
+  name = "Shopify - Handmade Theme"
+  homepage = "https://handmade-theme.myshopify.com/"
+  repo = ""

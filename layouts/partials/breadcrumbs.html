@@ -1,0 +1,53 @@
+{{ $section := or (index .Site.Data.config (or .Section (or .Data.Singular (.Title|lower)))) .Params }}
+{{ $breadcrumbs := or $section.breadcrumbs .Site.Data.config.breadcrumbs }}
+{{ $sectionName := or $section.name (or $section.page_header.title .Title) }}
+{{ $sectionUrl := or .Section (or .Data.Plural "") | lower | urlize }}
+
+{{ $appendPage := or $breadcrumbs.append_content_page (not (isset $breadcrumbs "append_content_page")) }}
+{{ $isTermPage := or (and .Data.Singular (not .Data.Terms)) }}
+{{ $termName := (.Title | lower | urlize) }}
+{{ $divider := "<span class=\"divider\"></span>" | safeHTML }}
+<!--
+<pre>
+    $section = {{ $section }}
+    $sectionName = {{ $sectionName }}
+    $sectionUrl = {{ $sectionUrl }}
+    $breadcrumbs = {{ $breadcrumbs }}
+    $appendPage = {{ $appendPage }}
+    $isTermPage = {{ $isTermPage }}
+    $termName = {{ $termName }}
+    $divider = {{ $divider }}
+</pre>
+-->
+          <div id="breadcrumb" class="breadcrumb-holder">
+            <ul vocab="http://schema.org/" typeof="BreadcrumbList" class="breadcrumb">
+{{ $items := $breadcrumbs.item }}
+{{ if (not $items) }}
+              <li property="itemListElement" typeof="ListItem">
+                <a property="item" typeof="WebPage" href="/"><span property="name" class="hide">{{ .Site.Title }}</span>Home</a>
+              </li>
+  {{ if (or $isTermPage (and .IsPage $section.name)) }}
+              <li property="itemListElement" typeof="ListItem">{{ $divider }}
+                <a property="item" typeof="WebPage" href="/{{ $sectionUrl }}"><span property="name">{{ $section.name }}</span></a>
+              </li>
+  {{ else if .IsNode }}
+              <li property="itemListElement" typeof="ListItem">{{ $divider }}{{ $sectionName }}</li>
+  {{ end }}
+  {{ if $isTermPage }}
+              <li property="itemListElement" typeof="ListItem">{{ $divider }}{{ $termName | title }}</li>
+  {{ end }}
+  {{ if (and $appendPage .IsPage) }}
+              <li property="itemListElement" typeof="ListItem">{{ $divider }}{{ $.Title | title }}</li>
+  {{ end }}
+{{ else }}
+  {{ range $index, $item := $breadcrumbs.item }}
+              <li property="itemListElement" typeof="ListItem">
+                <a property="item" typeof="WebPage" href="{{ $item.url }}">{{ $item.title | title }}</a>{{ $divider }}
+              </li>
+  {{ end }}
+  {{ if (and $appendPage $.IsPage) }}
+              <li property="itemListElement" typeof="ListItem">{{ $.Title | title }}</li>
+  {{ end }}
+{{ end }}
+            </ul>
+          </div>

@@ -1,0 +1,56 @@
+      <!-- Begin Header -->
+      <header class="header-content" data-stick="true">
+        <div class="header-container">
+          <div class="top-bar hidden-xs">
+            <div class="container">
+              <div class="row">
+                <div class="top-bar-left col-md-2 col-sm-2 col-xs-12">
+                </div>
+                <div class="top-bar-right col-md-10 col-sm-10 col-xs-12">
+{{ partial "top-menu" . }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="header-main">
+            <div class="container">
+              <div class="visible-xs">
+                <div class="logo-mobile">
+                    <a href="/" title="{{ .Site.Title }}" class="logo-site"><img class="mobile-logo" src="{{ .Site.BaseURL }}images/logo.png" alt="{{ .Site.Title }}"></a>
+                </div>
+                <div class="header-mobile">
+{{ partial "mobile-navbar" . }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="header-logo col-md-3 col-sm-4 hidden-xs">
+                  <a href="/" title="{{ .Site.Title }}" class="logo-site"><img class="logo" src="{{ .Site.BaseURL }}images/logo@2x.png" alt="{{ .Site.Title }}"></a>
+                </div>
+                <div class="header-other col-lg-9 col-md-9 col-sm-8">
+                  <div class="searchbox">
+                    <form id="search" class="navbar-form search" action="javascript:;" method="get" name="search">
+                      <input id="navbar-search" type="text" aria-label="Search the {{ .Site.Title }} website..." class="form-control site-search" autocomplete="off" placeholder="Search" required>
+                      <a href="#" id="search-button" class="search-icon" role="button"></a>
+                    </form>
+                    <div id="result-ajax-search">
+                      <ul id="search-results" class="search-results"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="header-nav">
+            <div class="container">
+              <div class="horizontal-menu dropdown-fix">
+                <div class="sidemenu-holder">
+                  <div class="navigation">
+{{ partial "main-nav" . }}
+                  </div>
+                </div>
+              </div>
+{{ partial "widgets/social-header" . }}
+            </div>
+          </div>
+        </div>
+      </header><!-- End Header -->
