@@ -1,4 +1,4 @@
-var solrIndex = '/search.json'
+var solrIndex = '/index.json'
     ,searchOverlay = document.querySelector('.navbar-form.search')
     ,searchButton = document.getElementById('search-button')
     ,searchInput = document.getElementById('navbar-search')

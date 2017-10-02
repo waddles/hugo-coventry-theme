@@ -7,11 +7,11 @@
         Terms & Conditions
         Contact Us
 -->
-                  <h4>Information</h4>
+<h4>{{with .Site.Data.l10n.menus.footer1.title}}{{.}}{{end}}</h4>
                   <ul class="list-links list-unstyled">
 {{- $currentNode := . -}}
 {{- range .Site.Menus.footer1 -}}
-                    <li>
+                    <li class="footer1">
                       <a tabindex="-1" {{if $currentNode.HasMenuCurrent "footer1" . }}class="active"{{end}} href="{{ .URL }}">{{ .Pre }}<span>{{ .Name }}</span></a>
                     </li>
 {{- end -}}

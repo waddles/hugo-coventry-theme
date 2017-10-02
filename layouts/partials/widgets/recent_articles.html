@@ -7,11 +7,7 @@
                           <div class="recent-post-item">
                             <div class="recent-media-thumb">
                               <a href="{{ .Permalink }}">
-{{if or (in (substr .Params.banner 0 7) "http://") (in (substr .Params.banner 0 8) "https://")}}
-                                <span style="background-image:url({{ .Params.banner | urlize }})" alt="{{ .Title }}"></span>
-{{ else }}
-                                <span style="background-image:url({{ .Site.BaseURL }}{{ or .Params.banner | default "images/post-image.jpg" | urlize }})" alt="{{ .Title }}"></span>
-{{end}}
+                                <span style="background-image:url({{ with or (.Params.thumbnail) (.Params.banner) ("/images/post-image.jpg") }}{{ . | urlize }}{{ end }})" alt="{{ .Title }}"></span>
                               </a>
                             </div>
                             <div class="recent-media-content">

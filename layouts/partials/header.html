@@ -27,15 +27,7 @@
                   <a href="/" title="{{ .Site.Title }}" class="logo-site"><img class="logo" src="{{ .Site.BaseURL }}images/logo@2x.png" alt="{{ .Site.Title }}"></a>
                 </div>
                 <div class="header-other col-lg-9 col-md-9 col-sm-8">
-                  <div class="searchbox">
-                    <form id="search" class="navbar-form search" action="javascript:;" method="get" name="search">
-                      <input id="navbar-search" type="text" aria-label="Search the {{ .Site.Title }} website..." class="form-control site-search" autocomplete="off" placeholder="Search" required>
-                      <a href="#" id="search-button" class="search-icon" role="button"></a>
-                    </form>
-                    <div id="result-ajax-search">
-                      <ul id="search-results" class="search-results"></ul>
-                    </div>
-                  </div>
+{{ partial "widgets/search" . }}
                 </div>
               </div>
             </div>
