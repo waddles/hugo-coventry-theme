@@ -403,6 +403,7 @@ select{line-height:42px}
 .mobile-version .list-inline>li.cart-target:hover{z-index:2}
 .mobile-version .list-inline>li.cart-target:hover .cart-dd{display:block !important}
 .menu-mobile{border:0}
+.menu-mobile a span.fa{padding-right: 10px}
 .menu-mobile .main-nav .dropdown-menu li{padding:0;border:none}
 .menu-mobile .main-nav .dropdown.open>.dropdown-menu{display:none}
 .menu-mobile .main-nav .dropdown.menu-mobile-open>.dropdown-menu{display:block;clear:both;border:none;background:#444 !important}
@@ -433,7 +434,7 @@ select{line-height:42px}
 .menu-mobile .main-nav>li.dropdown .dropdown-menu .dropdown-submenu.menu-mobile-open>span.expand .fa:before{content:"\f107"}
 .menu-mobile .main-nav>li.li-on-mobile{font-size:32px;text-align:center;padding:15px;text-transform:capitalize;border-bottom:1px solid #4c4c4c;font-family:"Playfair Display",Arial,Helvetica,sans-serif;color:#ddd}
 .menu-mobile .main-nav .product-button{display:none !important}
-.menu-mobile .main-nav span.expand{position:absolute;z-index:5;right:0px;top:0px;width:40px;height:40px;line-height:40px;text-align:center;font-size:14px;cursor:pointer;color:#777}
+.menu-mobile .main-nav span.expand{position:absolute;z-index:5;right:0px;top:0px;width:40px;height:40px;line-height:40px;text-align:center;font-size:30px;cursor:pointer;color:#777}
 .menu-mobile .main-nav span.expand i{display:block;width:100%;height:100%}
 .menu-mobile .main-nav span.expand i:before{content:"\f105";font-family:Fontawesome;font-size:14px;display:block;line-height:40px}
 .menu-mobile .main-nav .mega-menu .product-wrapper{padding:0 18px 0 0}
